@@ -34,6 +34,7 @@ class UserDetails(View):
             context = {
                 'role': 'public'
             }
+            print('length=0')
             return render(request, 'home/get_details.html')
         context = {
             'name': app_user[0].name,
@@ -46,13 +47,15 @@ class UserDetails(View):
         if len(app_user)==0:
             app_user = AppUser()
             app_user.email = request.user.email
-            app_user.name = request['POST'].name
-            app_user.meet_link = request['POST'].meet_link
+            app_user.name = request.POST['name']
+            app_user.meet_link = "Not set"
             app_user.role = 'public'
             app_user.user = request.user
             app_user.save()
-        app_user.name = request['POST'].name
-        app_user.meet_link = request['POST'].meet_link
+            return HttpResponseRedirect(reverse('home'))
+        app_user.name = request.POST['name']
+        if request.POST.get('meet_link') is not None:
+            app_user.meet_link = request.POST['meet_link']
         return HttpResponseRedirect(reverse('home'))
         
 

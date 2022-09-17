@@ -1,0 +1,37 @@
+.font {
+    font-size: 18px;
+  }
+  
+  rect {
+    cursor: pointer; 
+    stroke-width: 2;
+  }
+  rect.disabled {
+    fill: transparent !important;
+  }
+  
+  /* chart */
+  #chart {
+    margin-left: 2rem;
+    position: absolute;
+    height: 40vw;
+    width: 40vw;
+    display: block;
+    z-index: 600;
+  }
+  
+  /* tooltip */
+  .tooltip {
+    background: #eee;
+    box-shadow: 0 0 5px #999999;
+    color: #333;
+    display: none;
+    font-size: 18px;
+    left: 130px;
+    padding: 10px;  
+    position: absolute;
+    text-align: center;
+    top: 95px;
+    width: 80px;
+    z-index: 10;
+  }

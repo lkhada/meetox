@@ -1,0 +1,28 @@
+.index-outer{
+    background-color: rgb(245,245,255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5rem 0rem 28rem 0rem;
+    font-size: large;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+.index-inner{
+    padding: 1rem 2rem 1rem 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 0.5rem;
+}
+.index-inner a{
+    color: black;
+    text-decoration: none;
+    padding: 1rem;
+}
+.index-inner:hover{
+    transform: scale(1.02);
+    transition: 0.5s;
+    box-shadow: 0px 0px 30px #91a4e4;
+}

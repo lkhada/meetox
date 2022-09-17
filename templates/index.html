@@ -1,0 +1,23 @@
+{% load static %}
+{% load socialaccount %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login with google</title>
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+</head>
+<body>
+    {% include 'includes/header.html' %}
+    <div class="index-outer">
+        <div class="index-inner">
+            <a href="{% provider_login_url 'google'%}">Login with Google</a>
+            <img src="{% static 'google_logo.webp' %}" alt="_blank" width="40">
+        </div>
+    </div>
+    {% include 'includes/footer.html' %}
+</body>
+</html>

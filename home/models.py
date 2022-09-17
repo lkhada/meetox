@@ -8,9 +8,12 @@ class AppUser(models.Model):
     email = models.EmailField()
     role = models.CharField(max_length=10)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    meet_link = models.TextField(max_length=30, null=True)
 
 class TimeSlot(models.Model):
     start_time = models.TimeField()
     end_time = models.TimeField()
     notes = models.TextField(null=True)
-    app_user = models.ForeignKey(AppUser, on_delete=models.CASCADE, related_name='slots')
+    public_user = models.ForeignKey(AppUser, on_delete=models.CASCADE, related_name='public_slots', null=True)
+    admin_user = models.ForeignKey(AppUser, on_delete=models.CASCADE, related_name='admin_slots')
+    # user = models.ForeignKey(AppUser, on_delete=models.CASCADE, related_name='slots')

@@ -138,7 +138,7 @@ AUTHENTICATION_BACKEND = [
 ]
 
 SITE_ID = 2
-LOGIN_REDIRECT_URL = '/make-user'
+LOGIN_REDIRECT_URL = '/user-details'
 
 SOCIALACCOUNT_PROVIDERS = {
     'google': {

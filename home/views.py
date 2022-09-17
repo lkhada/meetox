@@ -10,8 +10,8 @@ class Home(View):
     def get(self, request):
         if request.user.is_authenticated is False:
             return render(request, 'index.html')
-        app_user = AppUser.objects.get(user=request.user)
-        if app_user.role=='public':
+        app_user = AppUser.objects.filter(user=request.user)
+        if app_user[0].role=='public':
             sample_time = [10,25,30,35]
             context = {
                 'time_slots': sample_time,
@@ -27,14 +27,34 @@ class Home(View):
     def post(self, request):
         pass
 
-class MakeUser(View):
+class UserDetails(View):
     def get(self, request):
-        app_user = AppUser()
-        app_user.email = request.user.email
-        app_user.role = "public"
-        app_user.user = request.user
-        app_user.save()
+        app_user = AppUser.objects.filter(user=request.user)
+        if len(app_user)==0:
+            context = {
+                'role': 'public'
+            }
+            return render(request, 'home/get_details.html')
+        context = {
+            'name': app_user[0].name,
+            'role': app_user[0].role
+        }
+        return render(request, 'home/get_details.html')
+    
+    def post(self, request):
+        app_user = AppUser.objects.filter(user=request.user)
+        if len(app_user)==0:
+            app_user = AppUser()
+            app_user.email = request.user.email
+            app_user.name = request['POST'].name
+            app_user.meet_link = request['POST'].meet_link
+            app_user.role = 'public'
+            app_user.user = request.user
+            app_user.save()
+        app_user.name = request['POST'].name
+        app_user.meet_link = request['POST'].meet_link
         return HttpResponseRedirect(reverse('home'))
+        
 
 class SetUserPublic(View):
     def post(self, request):

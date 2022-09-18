@@ -1,4 +1,8 @@
 .footer-outer{
+    margin-left: 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
     background-color: #202124;
     color: white;
     display: flex;

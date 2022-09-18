@@ -12,25 +12,23 @@
 <body>
     <div class="header-out">
             <span class="header-in-left">
-               <!-- <img src="{% static 'includes/logo.webp' %}"> -->
-            </span>
-            <span class="header-in-mid">
-                <h1>Meeting Scheduler</h1>
+               <img src="{% static 'home/app_logo.jpeg' %}" width="80px" height="80px" style="border-radius: 50%; margin-right:3rem; margin-left: 13rem;">
+               <h1 style="color: #fff;">Meetox</h1>
             </span>
             <span class="header-in-right">
                 {% if user.is_authenticated %} 
-                    <span>
-                        <form action="{% url 'logout' %}" method="POST">
+                    <span class="span-inner">
+                        <form class="form-inner" action="{% url 'set-user-admin' %}" method="POST">
+                            {% csrf_token %}
+                            <button class="head-button">Sign Up as Admin</button>
+                        </form>
+                        <form class="form-inner" action="{% url 'set-user-public' %}" method="POST">
+                            {% csrf_token %}
+                            <button class="head-button">Public User</button>
+                        </form>
+                        <form class="form-inner" action="{% url 'logout' %}" method="POST">
                             {% csrf_token %}
                             <button class="head-button">Logout</button>
-                        </form>
-                        <form action="{% url 'set-user-admin' %}" method="POST">
-                            {% csrf_token %}
-                            <button class="head-button">Make Admin</button>
-                        </form>
-                        <form action="{% url 'set-user-public' %}" method="POST">
-                            {% csrf_token %}
-                            <button class="head-button">Make Public</button>
                         </form>
                     </span>
                 {% endif %}

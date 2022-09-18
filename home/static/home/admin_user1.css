@@ -1,10 +1,14 @@
 body{
-    display: flex;
-    align-items: center;
-	position: relative;
-    margin: 0;
+	background-image: url('./background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+	width: 100%;
+	height: 100vh;
+	overflow: hidden;
+	margin: 0;
 }
-body::before{
+/* body::before{
 	content:"";
 	position:absolute;
 	top: 0;
@@ -17,23 +21,72 @@ body::before{
 body::after{
 	content:"";
 	position:absolute;
-	/* top: -20px; */
 	left: 0;
 	width:100%;
 	height:100%;
 	background: linear-gradient(160deg, #03a9f4, #03a9f4 50%, transparent 50%, transparent);
 	animation:animate 5s ease-in-out infinite;
-}
+} */
 /* .Outer-div{
 	position: relative;
 } */
+.text-right{
+	margin-left: 60rem;
+	margin-top: 2rem;
+}
+.outer-left{
+	margin-top: 8rem;
+	display: flex;	
+	flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.outer-form{
+    border-radius: 0.5rem;
+    background-color: transparent;
+    height: 40vh;
+    margin-right: 15rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.list{
+	justify-content: flex-start;
+}
+.mid{
+	background-color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+span{
+    font-size: x-large;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+input{
+    font-size: large;
+	width: 10vw;
+}
+.one{
+    margin: 0.2rem 0 0.2rem 0;
+}
+.second{
+    margin-bottom: 0.5rem;
+}
+.form-button{
+    border-radius: 0.5rem;
+    padding: 1rem;
+    font-size: medium;
+    background-color: #0F9D58;
+}
 .box{
-    margin-left: 4.3rem;
+	margin-top: 2.3rem;
+    margin-left: 4rem;
 	padding: 0;
-	position:absolute;
 	z-index:1000;
-	width:35vw;
-	height:35vw;
+	width:30vw;
+	height:30vw;
 	backdrop-filter:blur(25px);
 	border-radius:50%;
 	border:1px solid rgba(255,255,255,0.5);

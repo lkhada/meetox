@@ -1,0 +1,16 @@
+{% include 'includes/header.html' %}
+
+<h1>Slots</h1>
+    <ul>
+        {% for time in time_slots %}
+            <li>{{ time.start_time }} to {{ time.end_time }}</li>
+        {% endfor %}
+    </ul>
+<hr>
+<form action="{% url 'home' %}" method="post">
+    {% csrf_token %}
+    <input type="time" name="start_time" placeholder="start time">
+    <input type="time" name="end_time" placeholder="end time">
+    <input type="text" name="notes" placeholder="notes">
+    <button>Book time!</button>
+</form>

@@ -11,6 +11,7 @@ class AppUser(models.Model):
     meet_link = models.TextField(max_length=30, null=True)
 
 class TimeSlot(models.Model):
+    date = models.DateField(null=True)
     start_time = models.TimeField()
     end_time = models.TimeField()
     notes = models.TextField(null=True)

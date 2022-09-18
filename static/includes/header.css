@@ -1,28 +1,32 @@
 .header-out{
-    background-color:  white;
+    background-color:  transparent;
     padding: 0.5rem 0rem 0.5rem 0rem;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-items: center;
+    justify-content: space-between;
     position: fixed;
     top: 0;
     z-index: 2000;
+    width: 100%;
 }
 .header-out span{
     margin-left: 1rem;
     margin-right: 1rem;
 }
 
-.header-in-mid{
-    font-size: large;
-}
+
 .header-in-right{
     display: flex;
     flex-direction: row;
     font-size: x-large;
     align-items: center;
     justify-content: center;
+}
+.span-inner{
+    display: flex;
+    justify-content: center;
+    align-content: center;
 }
 .header-in-right span{
     margin-left: 1rem;
@@ -39,8 +43,21 @@
     color: black;
 }
 .header-in-left{
+    margin-left: 2rem;
     width: 6%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
+.header-in-left h1{
+    display: inline-block;    
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+/* .header-in-left img{
+    border-radius: 50%;
+    width: 40px;
+} */
 .head-button{
     border-radius: 0.5rem;
     font-size: large;
@@ -48,4 +65,11 @@
     padding: 0.7rem;
     background-color: #df2b1b;
     border: none;
+}
+.head-button:hover{
+    text-decoration: 0.1rem underline;
+    cursor: pointer;
+}
+.form-inner{
+    margin: 0rem 1rem 0rem 1rem;
 }

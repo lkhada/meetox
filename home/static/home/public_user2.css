@@ -12,8 +12,9 @@
   
   /* chart */
   #chart {
+    margin-top: 2rem;
     margin-left: 2rem;
-    position: absolute;
+    position: fixed;
     height: 40vw;
     width: 40vw;
     display: block;

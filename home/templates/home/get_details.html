@@ -7,12 +7,11 @@
     <title>Document</title>
 </head>
 <body>
-    {% include 'includes/header.html' %}
     <form action="{% url 'user-details' %}" method="POST">
         {% csrf_token %}
         <label>Name</label>
         <input type="text" required placeholder="Name" value="{{ name }}" name="name">
-        {% if role is 'admin' %}
+        {% if role == 'admin' %}
             <label>Google Meet Link</label>
             <input type="text" required placeholder="Google Meet link" value="{{ meet_link }}" name="meet_link">
         {% endif %}

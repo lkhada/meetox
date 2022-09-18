@@ -1,4 +1,5 @@
 {% load static %}
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8" />
@@ -7,8 +8,8 @@
     <link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
     <link rel="mask-icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />
     <link href="https://fonts.googleapis.com/css?family=Lato|Oswald" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'home/public_user1.css' %}" />
-    <link rel="stylesheet" href="{% static 'home/public_user2.css' %}" />
+    <link rel="stylesheet" href="{% static 'home/admin_user1.css' %}" />
+    <link rel="stylesheet" href="{% static 'home/admin_user2.css' %}" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-circle-progress/1.2.2/circle-progress.min.js"></script>
@@ -20,28 +21,46 @@
     </script>
 </head>
   <body>
-    <!-- <div class="Outer-div"> -->
-        {% include 'includes/header.html' %}
-        <div class="box">
-            <div class="clock">
-                <div class="hour">
-                    <div class="hr" id="hr"></div>
-                </div>
-                <div class="min">
-                    <div class="mn" id="mn"></div>
-                </div>
-                <div class="sec">
-                    <div class="sc" id="sc"></div>
-                </div>
+    {% include 'includes/header.html' %}
+    <div class="outer-left">
+      <div class="box">
+        <div class="clock">
+            <div class="hour">
+                <div class="hr" id="hr"></div>
+            </div>
+            <div class="min">
+                <div class="mn" id="mn"></div>
+            </div>
+            <div class="sec">
+                <div class="sc" id="sc"></div>
             </div>
         </div>
-        <div id="chart"></div>
-        </div>
-    <!-- </div> -->
+      </div>
+      <div class="time_slots_class">
+        <h1>Slots</h1>
+        <ul class="list">
+            {% for time in time_slots %}
+                <li>{{ time.start_time }} to {{ time.end_time }}</li>
+            {% endfor %}
+        </ul>
+      </div>
+    <form class="outer-form" action="{% url 'home' %}" method="post">
+        {% csrf_token %}
+        <span class="second">Enter the start time</span>
+        <input class="one" type="time" name="start_time" placeholder="Enter the start time">
+        <span class="second">Enter the end time</span>
+        <input class="one" type="time" name="end_time" placeholder="Enter the end time">
+        <span class="second">Enter your notes here</span>
+        <input class="one" type="text" name="notes" placeholder="notes">
+        <button class="form-button">Book Time!</button>
+    </form>
+    {% include 'includes/footer.html' %}
+    <div id="chart"></div>
+    </div>
     <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.min.js'></script>
-        <script src="{% static 'home/public_user1.js' %}"></script>
-        <script src="{% static 'home/public_user2.js' %}"></script>
+        <script src="{% static 'home/admin_user1.js' %}"></script>
+        <script src="{% static 'home/admin_user2.js' %}"></script>
   </body>
 </html>

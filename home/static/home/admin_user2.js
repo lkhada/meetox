@@ -1,30 +1,18 @@
 var dataset = [
-    { label: "Assamese", count: 13 },
-    { label: "Bengali", count: 83 },
-    { label: "Bodo", count: 1.4 },
-    { label: "Dogri", count: 2.3 },
-    { label: "Gujarati", count: 46 },
-    { label: "Hindi", count: 300 },
-    { label: "Kannada", count: 38 },
-    { label: "Kashmiri", count: 5.5 },
-    { label: "Konkani", count: 5 },
-    { label: "Maithili", count: 20 },
-    { label: "Malayalam", count: 33 },
-    { label: "Manipuri", count: 1.5 },
-    { label: "Marathi", count: 72 },
-    { label: "Nepali", count: 2.9 },
-    { label: "Oriya", count: 33 },
-    { label: "Punjabi", count: 29 },
-    { label: "Sanskrit", count: 0.01 },
-    { label: "Santhali", count: 6.5 },
-    { label: "Sindhi", count: 2.5 },
-    { label: "Tamil", count: 61 },
-    { label: "Telugu", count: 74 },
-    { label: "Urdu", count: 52 }];
+    { label: "Aman interview regarding job 12-12:30", count: 30 },
+    { label: "Free slot 12:30-1:00", count: 30 },
+    { label: "Lunch Time 1:00-2:00", count: 60 },
+    { label: "Free slot 2:00-2:45", count: 45 },
+    { label: "Meeting with boss for sales 2:45-3:15", count: 30 },
+    { label: "Free slot 3:15-5:00", count: 105 },
+    { label: "Snakes 5:00-5:10", count: 10 },
+    { label: "Free slot 5:10-6:00", count: 45 },
+    { label: "College interview for internship 6:00-7:00", count: 60 },
+    { label: "Dogri", count: 290 }];
     
     const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
     // chart dimensions
-    var width = .4*vw;
+    var width = .35*vw;
     var height = width;
     
     // a circle chart needs a radius
@@ -99,9 +87,9 @@ var dataset = [
       var total = d3.sum(dataset.map(function (d) {// calculate the total number of tickets in the dataset         
         return d.enabled ? d.count : 0; // checking to see if the entry is enabled. if it isn't, we return 0 and cause other percentages to increase                                      
       }));
-      var percent = Math.round(1000 * d.data.count / total) / 10; // calculate percent
+      var percent = Math.round(d.data.count); // calculate percent
       tooltip.select('.label').html(d.data.label); // set current label           
-      tooltip.select('.percent').html(percent + '%'); // set percent calculated above          
+    //   tooltip.select('.percent').html(percent); // set percent calculated above          
       tooltip.style('display', 'block'); // set display                     
     });
     
